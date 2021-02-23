@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Project1RandomNumber';
+  title = 'Random Number Generator';
+  clickMessage = '';
+  onClickMe() {
+    this.clickMessage = this.getRndInteger(3,25);
+  }
+  getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min) ) + min;
+  }
 }
+
