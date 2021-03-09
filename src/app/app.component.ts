@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { FormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,12 +9,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Random Number Generator';
-  clickMessage = '';
-  onClickMe() {
-    this.clickMessage = this.getRndInteger(3,25);
+  myMinimum: number;
+  myMaximum: number;
+  clickMessage;
+  onClickMe(){
+    this.clickMessage = this.randomNumberGenerator(this.myMaximum, this.myMinimum);
   }
-  getRndInteger(min, max) {
-    return Math.floor(Math.random() * (max - min) ) + min;
+
+  randomNumberGenerator(max: number, min: number) : number {
+    return  Math.floor(Math.random() * (max - min) + +min) + +1;
   }
+
 }
 
